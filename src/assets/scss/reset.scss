@@ -1,0 +1,179 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dd,
+dl,
+dt,
+li,
+ol,
+ul,
+fieldset,
+form,
+label,
+legend {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  border: none;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+body,
+a,
+input,
+button {
+  font-size: 0.16rem;
+  outline: none;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/*通用*/
+
+@media (max-width: 1922px) {
+  html {
+    font-size: 100px;
+  }
+}
+
+@media (max-width: 1682px) {
+  html {
+    font-size: 87.5px;
+  }
+}
+
+@media (max-width: 1442px) {
+  html {
+    font-size: 75px;
+  }
+}
+
+@media (max-width: 1368px) {
+  html {
+    font-size: 71.14583px;
+  }
+}
+
+@media (max-width: 1282px) {
+  html {
+    font-size: 66.66667px;
+  }
+}
+
+@media (max-width: 1026px) {
+  html {
+    font-size: 53.33333px;
+  }
+}
+
+@media (max-width: 802px) {
+  html {
+    font-size: 41.66667px;
+  }
+}
+
+/* 定义 */
+
+
+
+
+
+
+
+/*滚动条样式*/
+
+::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 10px;
+  /*高宽分别对应横竖滚动条的尺寸*/
+  height: 10px;
+  cursor: pointer;
+}
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /*三角箭头的颜色*/
+  scrollbar-arrow-color: #fff;
+  /*滚动条滑块按钮的颜色*/
+  scrollbar-face-color: #0099dd;
+  /*滚动条整体颜色*/
+  scrollbar-highlight-color: #0099dd;
+  /*滚动条阴影*/
+  scrollbar-shadow-color: #0099dd;
+  /*滚动条轨道颜色*/
+  scrollbar-track-color: #0066ff;
+  /*滚动条3d亮色阴影边框的外观颜色——左边和上边的阴影色*/
+  scrollbar-3dlight-color: #0099dd;
+  /*滚动条3d暗色阴影边框的外观颜色——右边和下边的阴影色*/
+  scrollbar-darkshadow-color: #0099dd;
+  /*滚动条基准颜色*/
+  scrollbar-base-color: #0099dd;
+}
+
+[v-cloak] {
+  display: none;
+}

@@ -15,4 +15,8 @@
  */
 import btn from './btn';
 import btns from './input';
-export default [btn, btns];
+const returnObj = {
+  btn,
+  input: btns,
+};
+export default returnObj;

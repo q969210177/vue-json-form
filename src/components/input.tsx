@@ -1,11 +1,17 @@
-import { defineComponent, h } from 'vue'
+import { defineComponent, h } from 'vue';
 const input = defineComponent({
   name: 'Input',
+  props:{
+    text:{
+      type:String,
+      default:""
+    }
+  },
   setup() {
-    return {}
+    return {};
   },
-  render() {
-    h('div', {}, 'input')
+  render(vm:any) {
+    return h('div', {}, vm.text);
   },
-})
-export default input
+});
+export default input;

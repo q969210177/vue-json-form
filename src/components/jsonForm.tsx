@@ -1,4 +1,5 @@
-import { defineComponent, h } from 'vue'
+import { defineComponent, h } from 'vue';
+import comArr from './compoent';
 interface Irule {
   type: string
 }
@@ -8,21 +9,23 @@ const jsonForm = defineComponent({
     rule: {
       type: Array,
       default: () => {
-        return []
+        return [];
       },
     },
   },
   setup(props) {
-    return {}
+    console.log(comArr);
+    return {
+      comArr,
+    };
   },
   render(vm: any) {
-    console.log(vm)
-
+    console.log(vm);
     return h('div', {}, [
       vm.rule.map((i: Irule) => {
-        return <span>{i.type}</span>
+        return h(vm.comArr[i.type]);
       }),
-    ])
+    ]);
   },
-})
-export default jsonForm
+});
+export default jsonForm;
