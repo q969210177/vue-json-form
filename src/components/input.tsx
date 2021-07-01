@@ -4,8 +4,8 @@ const input = defineComponent({
   props:{
     text:{
       type:String,
-      default:""
-    }
+      default:'',
+    },
   },
   setup() {
     return {};

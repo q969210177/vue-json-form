@@ -14,7 +14,6 @@ const jsonForm = defineComponent({
     },
   },
   setup(props) {
-    console.log(comArr);
     return {
       comArr,
     };
