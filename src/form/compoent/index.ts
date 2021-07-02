@@ -13,10 +13,8 @@
 	name = q969210177
 	email = 969210177@qq.com
  */
-import btn from '../form/compoent/btn';
-import btns from '../form/compoent/input';
-const returnObj = {
-  btn,
-  input: btns,
-};
-export default returnObj;
+import btn from './btn';
+import input from './input';
+
+export default [btn,input];
+
