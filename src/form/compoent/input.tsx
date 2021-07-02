@@ -14,7 +14,11 @@ const input = defineComponent({
     console.log(vm);
     return h('input', {
       value:vm.text,
-      onChange:(v:Event)=>{console.log(v.target.value)},
+      onChange:(v:Event)=>{
+        const tra:HTMLInputElement = v.target as HTMLInputElement
+        console.log(tra.value);
+
+      },
       // on:{
       //   change:(v:Event)=>{console.log(v);
       //   },
