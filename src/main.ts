@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import plu from '@/components/form'
+import '@/utils/utils'
 const app = createApp(App)
 app.use(plu,{ name:'111' })
 

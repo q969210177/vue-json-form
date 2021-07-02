@@ -117,14 +117,5 @@ export function getTimes(type: IgetTimesParams, v: Date = new Date()) {
   }
   return timeArr;
 }
-const timeObje = {
-  1:1,
-  2:2,
-  3:3,
-  4:4,
-  5:5,
-  6:6,
-}
-console.log(getTimes('middleYeal',new Date('2021-6-30')));
 
 
