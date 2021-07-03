@@ -20,11 +20,12 @@ const jsonForm = defineComponent({
     };
   },
   render(vm: any) {
-    console.log(vm.compoentArr);
-
     const testName = 'Btn'
-    return <div>{vm.compoentArr.map((i:any)=>{
-      return h(i, { text:1111 } );
+    console.log(vm.compoentArr);
+    //h(i.type, { text:1111 } );
+    return <div>{vm.rule.map((i:any)=>{
+      // return <div>{i.type}</div>
+      return h('button', { text:1111 } ); //
     })}</div>
     // return h('test', {}, [
     //   // vm.rule.map((i: Irule) => {

@@ -1,6 +1,5 @@
 import { Component } from 'vue';
 import jsonForm  from './compoent/jsonForm';
-
 interface Iplu {
   install:any
   [x: string]:any
@@ -12,8 +11,6 @@ const plu:Iplu = {
   },
   user(name:string,component:Component){
     this.testArr[name] = component
-    console.log(this.testArr);
-
   },
   testArr:{},
 }

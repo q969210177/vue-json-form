@@ -17,7 +17,6 @@ const input = defineComponent({
       onChange:(v:Event)=>{
         const tra:HTMLInputElement = v.target as HTMLInputElement
         console.log(tra.value);
-
       },
       // on:{
       //   change:(v:Event)=>{console.log(v);
