@@ -1,18 +1,23 @@
 import { Component } from 'vue';
-import jsonForm  from './compoent/jsonForm';
+import { Vue } from 'vue-class-component'
+import CForm from './corsrc/CForm';
+import comArr from '@/form/compoent/index'
 interface Iplu {
   install:any
   [x: string]:any
-  testArr:{[x: string]:Component;}
+  // testArr:{[x: string]:Component;}
+}
+interface IPluVue extends Vue {
+  [x: string]:any
 }
 const plu:Iplu = {
-  install(Vue:any,op:any) {
-    Vue.component(jsonForm.name,jsonForm)
+  install(Vue:IPluVue,op:any) {
+    Vue.component('CForm',CForm)
   },
-  user(name:string,component:Component){
-    this.testArr[name] = component
+  component(name:string,component:Component){
+    this.comArr[name] = component
   },
-  testArr:{},
+  comArr,
 }
 export default plu
 
