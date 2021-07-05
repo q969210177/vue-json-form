@@ -1,10 +1,11 @@
-import { defineComponent } from 'vue';
+import { defineComponent, h, reactive, VNode } from 'vue';
 import { Vue } from 'vue-class-component';
-import { getRuleItem } from '@/form/utils/getRuleItem';
 import { IRuleItem } from '../types/ruleType';
+import root from '@/form/index';
 interface CForm extends Vue {
   rule: []
   formModel: { [x: string]: any; }
+  getRuleItem: (i: IRuleItem) => VNode
 }
 const CForm = defineComponent({
   name: 'CForm',
@@ -16,8 +17,18 @@ const CForm = defineComponent({
       },
     },
   },
-  setup(props) {
-    const formModel: CForm['formModel'] = {};
+  setup(props, ctx) {
+    const formModel: CForm['formModel'] = reactive({});
+    const { comArr } = root;
+    function getRuleItem(i: IRuleItem) {
+      return h(comArr[i.type], {
+        value: formModel[i.name],
+        'onUpdate:value': (v: any) => {
+          formModel[i.name] = v;
+          ctx.emit('update:value', v);
+        },
+      });
+    }
     if (props.rule.length) {
       const rule: IRuleItem[] = props.rule as IRuleItem[];
       rule.forEach((i: IRuleItem) => {
@@ -26,6 +37,7 @@ const CForm = defineComponent({
     }
     return {
       formModel,
+      getRuleItem,
     };
   },
   /**
@@ -34,14 +46,13 @@ const CForm = defineComponent({
    * @returns
    */
   render(vm: CForm) {
-    console.log(vm.formModel, '1111');
     return (
       <div class="CForm">
         <a-form model={vm.formModel}>
           {vm.rule.map((i: IRuleItem) => {
             return (
               <a-form-item label="Activity name">
-                {getRuleItem(i, vm)}
+                {vm.getRuleItem(i)}
               </a-form-item>
             );
           })}
