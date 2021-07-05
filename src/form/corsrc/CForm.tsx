@@ -1,4 +1,4 @@
-import { defineComponent, h, reactive, VNode } from 'vue';
+import { defineComponent, h, reactive, VNode, resolveComponent } from 'vue';
 import { Vue } from 'vue-class-component';
 import { IRuleItem } from '../types/ruleType';
 import root from '@/form/index';
@@ -21,7 +21,7 @@ const CForm = defineComponent({
     const formModel: CForm['formModel'] = reactive({});
     const { comArr } = root;
     function getRuleItem(i: IRuleItem) {
-      return h(comArr[i.type], {
+      return h(resolveComponent(i.type), {
         value: formModel[i.name],
         ...i.props,
         ...i.on,
