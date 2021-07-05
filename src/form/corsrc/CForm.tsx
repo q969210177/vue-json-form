@@ -25,7 +25,7 @@ const CForm = defineComponent({
         value: formModel[i.name],
         'onUpdate:value': (v: any) => {
           formModel[i.name] = v;
-          ctx.emit('update:value', v);
+          // ctx.emit('update:value', formModel);/
         },
       });
     }
@@ -51,9 +51,7 @@ const CForm = defineComponent({
         <a-form model={vm.formModel}>
           {vm.rule.map((i: IRuleItem) => {
             return (
-              <a-form-item label="Activity name">
-                {vm.getRuleItem(i)}
-              </a-form-item>
+              <a-form-item label={i.label}>{vm.getRuleItem(i)}</a-form-item>
             );
           })}
         </a-form>

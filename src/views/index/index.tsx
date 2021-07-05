@@ -17,9 +17,9 @@ const index = defineComponent({
   },
   render(vm: index) {
     const rule: IRuleItem[] = [
-      { type: 'DatePicker', name: 'aaaa', value: '2020-01-01' },
-      { type: 'Input', name: 'cccc', value: '111111' },
-      { type: 'Test', name: 'zzzz', value: '' },
+      { type: 'DatePicker', name: 'aaaa', value: '2020-01-01', label: '' },
+      { type: 'Input', name: 'cccc', value: '111111', label: '2222' },
+      { type: 'Test', name: 'zzzz', value: '', label: '测试组件' },
     ];
     return (
       <div class="index">
