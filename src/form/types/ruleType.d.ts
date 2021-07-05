@@ -32,4 +32,8 @@ export interface IRuleItem {
   name: string
   value: any
   label: string
+  props?: {
+    [x: string]: any
+  }
+  [x: string]: any
 }

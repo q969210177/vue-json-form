@@ -23,9 +23,10 @@ const CForm = defineComponent({
     function getRuleItem(i: IRuleItem) {
       return h(comArr[i.type], {
         value: formModel[i.name],
+        ...i.props,
+        ...i.on,
         'onUpdate:value': (v: any) => {
           formModel[i.name] = v;
-          // ctx.emit('update:value', formModel);/
         },
       });
     }
