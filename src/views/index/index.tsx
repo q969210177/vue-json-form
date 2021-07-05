@@ -32,7 +32,7 @@ const index = defineComponent({
           placeholder: '11111',
         },
         on: {
-          change(v: any) {
+          onChange(v: any) {
             console.log(v);
           },
         },
