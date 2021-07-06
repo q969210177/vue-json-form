@@ -1,7 +1,7 @@
 import { defineComponent, h, reactive, VNode, resolveComponent } from 'vue';
 import { Vue } from 'vue-class-component';
 import { IRuleItem } from '../types/ruleType';
-import root from '@/form/index';
+import { setDefaultCompoent } from '@/form/utils/utils';
 interface CForm extends Vue {
   rule: []
   formModel: { [x: string]: any; }
@@ -19,9 +19,17 @@ const CForm = defineComponent({
   },
   setup(props, ctx) {
     const formModel: CForm['formModel'] = reactive({});
-    const { comArr } = root;
+    function f(type: 0 | 1 | 2) {
+      const funcArr: any[] = [
+        // (): any => {
+        //   console.error('组件未注册');
+        //   return;
+        // },
+        // () => {},
+      ];
+    }
     function getRuleItem(i: IRuleItem) {
-      return h(resolveComponent(i.type), {
+      return h('div', {
         value: formModel[i.name],
         ...i.props,
         ...i.on,

@@ -1,23 +1,22 @@
 import { Component } from 'vue';
-import { Vue } from 'vue-class-component'
+import { Vue } from 'vue-class-component';
 import CForm from './corsrc/CForm';
-import comArr from '@/form/compoent/index'
 interface Iplu {
-  install:any
-  [x: string]:any
-  // testArr:{[x: string]:Component;}
+  install: any
+  component: (name: string, component: Component) => void
+  newComponent: { [x: string]: Component; }
+  // testArr:{}
 }
 interface IPluVue extends Vue {
-  [x: string]:any
+  [x: string]: any
 }
-const plu:Iplu = {
-  install(Vue:IPluVue,op:any) {
-    Vue.component('CForm',CForm)
+const plu: Iplu = {
+  install(Vue: IPluVue, op: any) {
+    Vue.component('CForm', CForm);
   },
-  component(name:string,component:Component){
-    this.comArr[name] = component
+  component(name: string, component: Component) {
+    this.newComponent[name] = component;
   },
-  comArr,
-}
-export default plu
-
+  newComponent: {},
+};
+export default plu;

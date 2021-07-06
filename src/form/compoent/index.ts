@@ -1,9 +1,10 @@
-
-import { Input,DatePicker } from 'ant-design-vue'
-
-
-const index = {
-  Input,
-  DatePicker,
+interface defaultCompoentObj {
+  input: string
+  datePicker: string
+  [x: string]: any
 }
-export default index
+const index: defaultCompoentObj = {
+  input: 'a-input',
+  datePicker: 'a-date-picker',
+};
+export default index;
