@@ -19,15 +19,6 @@ const CForm = defineComponent({
   },
   setup(props, ctx) {
     const formModel: CForm['formModel'] = reactive({});
-    function f(type: 0 | 1 | 2) {
-      const funcArr: any[] = [
-        // (): any => {
-        //   console.error('组件未注册');
-        //   return;
-        // },
-        // () => {},
-      ];
-    }
     function getRuleItem(i: IRuleItem) {
       return h(resolveComponent(setDefaultCompoent(i.type)), {
         value: formModel[i.name],

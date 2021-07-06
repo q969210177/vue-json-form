@@ -22,6 +22,9 @@ const index = defineComponent({
         name: 'aaaa',
         value: '',
         label: '',
+        props: {
+          size: 'small',
+        },
       },
       {
         type: 'input',

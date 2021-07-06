@@ -4,7 +4,7 @@ interface defaultCompoentObj {
   [x: string]: any
 }
 const index: defaultCompoentObj = {
-  input: 'a-input',
-  datePicker: 'a-date-picker',
+  input: 'aInput',
+  datePicker: 'aDatePicker',
 };
 export default index;

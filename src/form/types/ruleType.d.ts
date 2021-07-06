@@ -26,7 +26,6 @@ export interface IOptionAttrs {
     col?: boolean
   }
 }
-
 export interface IRuleItem {
   type: string
   name: string
@@ -34,6 +33,9 @@ export interface IRuleItem {
   label: string
   props?: {
     [x: string]: any
+  }
+  col: {
+    span: number
   }
   [x: string]: any
 }
