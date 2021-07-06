@@ -29,7 +29,7 @@ const CForm = defineComponent({
       ];
     }
     function getRuleItem(i: IRuleItem) {
-      return h('div', {
+      return h(resolveComponent(setDefaultCompoent(i.type)), {
         value: formModel[i.name],
         ...i.props,
         ...i.on,
