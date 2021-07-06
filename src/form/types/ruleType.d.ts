@@ -34,7 +34,7 @@ export interface IRuleItem {
   props?: {
     [x: string]: any
   }
-  col: {
+  col?: {
     span: number
   }
   [x: string]: any
