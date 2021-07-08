@@ -10,3 +10,9 @@ export function setDefaultCompoent(name: string): string {
     return '0';
   }
 }
+export function setRuleItemColSapn(span: number | undefined): number {
+  if (span && span <= 24) {
+    return span;
+  }
+  return 24;
+}
