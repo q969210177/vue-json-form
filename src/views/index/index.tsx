@@ -12,9 +12,10 @@ interface index extends Vue {
 const index = defineComponent({
   name: 'Index',
   setup() {
-    const value = reactive({});
+    const value: any = reactive({});
     const btnClick = () => {
-      console.log(value, 'btnclick');
+      const vvv: any = value.getFormData();
+      console.log(vvv, 'btnclick');
     };
     return { value, btnClick };
   },
@@ -47,8 +48,8 @@ const index = defineComponent({
     ];
     return (
       <div class="index">
-        {/* <div>{vm.value}</div> */}
-        <c-form rule={rule}></c-form>
+        <div>{vm.value}</div>
+        <c-form rule={rule} value={vm.value}></c-form>
         <a-button onClick={vm.btnClick}>2222</a-button>
       </div>
     );

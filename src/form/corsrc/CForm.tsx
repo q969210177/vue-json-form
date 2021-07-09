@@ -25,13 +25,25 @@ const CForm = defineComponent({
     },
   },
   setup(props, ctx) {
-    const formModel: CForm['formModel'] = reactive(props.value);
+    const formModel: CForm['formModel'] = reactive({});
+    //Api func 这里用一下方法处理 数据
+    const funcObj = {
+      getValue: (key: string) => {
+        return formModel[key];
+      },
+      getFormData: () => {
+        return formModel;
+      },
+    };
+    const CApi = reactive(props.value);
+    CApi.getValue = funcObj.getValue;
+    CApi.getFormData = funcObj.getFormData;
+    ctx.emit('update:valie', CApi);
     /**
      * 根据rule的item来生成组件
      * @param i
      * @returns
      */
-    console.log(props);
     if (props.rule.length) {
       const rule: IRuleItem[] = props.rule as IRuleItem[];
       rule.forEach((i: IRuleItem) => {
@@ -48,14 +60,9 @@ const CForm = defineComponent({
         },
       });
     }
-    function returnFormModel() {
-      ctx.emit('update:value', { a: 111 });
-    }
-    returnFormModel();
     return {
       formModel,
       getRuleItem,
-      returnFormModel,
     };
   },
   /**
@@ -79,7 +86,6 @@ const CForm = defineComponent({
             })}
           </a-row>
         </a-form>
-        <a-button onClick={vm.returnFormModel}>test</a-button>
       </div>
     );
   },
