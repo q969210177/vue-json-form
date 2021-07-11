@@ -2,6 +2,8 @@ import { defineComponent, h, reactive, VNode, resolveComponent } from 'vue';
 import { Vue } from 'vue-class-component';
 import { IRuleItem } from '../types/ruleType';
 import { setDefaultCompoent, setRuleItemColSapn } from '@/form/utils/utils';
+import defaultCompoentObj from '@/form/compoent/index'; //这个是表单的默认组件 通过 resolveComponent直接拿name
+
 interface CForm extends Vue {
   rule: []
   formModel: { [x: string]: any; }
@@ -51,14 +53,19 @@ const CForm = defineComponent({
       });
     }
     function getRuleItem(i: IRuleItem) {
-      return h(resolveComponent(setDefaultCompoent(i.type)), {
-        value: formModel[i.name],
-        ...i.props,
-        ...i.on,
-        'onUpdate:value': (v: any) => {
-          formModel[i.name] = v;
-        },
-      });
+      return h(
+        setDefaultCompoent(i.type) === 1
+          ? resolveComponent(defaultCompoentObj[i.type])
+          : setDefaultCompoent(i.type),
+      );
+      // return h(resolveComponent(setDefaultCompoent(i.type)), {
+      //   value: formModel[i.name],
+      //   ...i.props,
+      //   ...i.on,
+      //   'onUpdate:value': (v: any) => {
+      //     formModel[i.name] = v;
+      //   },
+      // });
     }
     return {
       formModel,
@@ -72,7 +79,6 @@ const CForm = defineComponent({
    */
   render(vm: CForm) {
     // setRuleItemColSapn(i.col?.span)
-
     return (
       <div class="CForm">
         <a-form model={vm.formModel}>

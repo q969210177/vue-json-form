@@ -30,7 +30,7 @@ const index = defineComponent({
           size: 'small',
         },
         col: {
-          span: 6,
+          span: 2,
         },
       },
       {
@@ -38,6 +38,18 @@ const index = defineComponent({
         name: 'cccc',
         value: '',
         label: '2222',
+        props: {
+          placeholder: '11111',
+        },
+        col: {
+          span: 4,
+        },
+      },
+      {
+        type: 'Test',
+        name: 'dddd',
+        value: '',
+        label: 'test',
         props: {
           placeholder: '11111',
         },
