@@ -17,6 +17,7 @@ const index = defineComponent({
       const vvv: any = value.getFormData();
       console.log(vvv, 'btnclick');
     };
+
     return { value, btnClick };
   },
   render(vm: index) {
@@ -61,8 +62,7 @@ const index = defineComponent({
     return (
       <div class="index">
         <div>{vm.value}</div>
-        <c-form rule={rule} value={vm.value}></c-form>
-        <a-button onClick={vm.btnClick}>2222</a-button>
+        <c-form rule={rule} value={vm.value} option={{}}></c-form>
       </div>
     );
   },
