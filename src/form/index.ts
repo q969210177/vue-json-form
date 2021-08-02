@@ -1,6 +1,6 @@
 import { Component } from 'vue';
 import { Vue } from 'vue-class-component';
-import CForm from './corsrc/CForm';
+import CForm from './compoent/CForm';
 interface Iplu {
   install: any
   component: (name: string, component: Component) => void

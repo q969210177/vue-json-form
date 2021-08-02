@@ -2,7 +2,7 @@ import { defineComponent, h, reactive, VNode, resolveComponent } from 'vue';
 import { Vue } from 'vue-class-component';
 import { IRuleItem } from '../types/ruleType';
 import { setDefaultCompoent, setRuleItemColSapn } from '@/form/utils/utils';
-import defaultCompoentObj from '@/form/compoent/index'; //这个是表单的默认组件 通过 resolveComponent直接拿name
+import defaultCompoentObj from '@/form/core/index'; //这个是表单的默认组件 通过 resolveComponent直接拿name
 
 interface CForm extends Vue {
   rule: []
