@@ -1,6 +1,6 @@
 import { Col, Popover, Row, Tooltip } from 'ant-design-vue';
-export interface IOptionAttrs {
-  x?: any
+export interface IFormOption {
+  form: any
   //   col?:
   //     | boolean
   //     | (Col & {
