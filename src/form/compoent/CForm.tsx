@@ -30,10 +30,10 @@
 // });
 // export default CForm;
 import { Vue } from 'vue-class-component';
-import { defineComponent, h, ref, resolveComponent } from 'vue';
+import { defineComponent, h, ref, resolveComponent, watchEffect } from 'vue';
 import { IRuleItem } from '../types/ruleType';
 import { setDefaultCompoent } from '../utils/utils';
-import api from '../utils/api';
+// import api from '../utils/api';
 interface ICForm extends Vue {
   CForm: any
 }
@@ -55,38 +55,24 @@ const CForm = defineComponent({
     function formData() {
       return formModel.value;
     }
-
+    //当rule发生改变的时候执行一下 初始化的操作
+    watchEffect(() => setFormModel());
     function setRule(name: string, newRuleItem: IRuleItem) {
-      // props.rule.forEach((i: IRuleItem, k: number) => {
-      //   if (i.name === name) {
-      //     // newRuleItem
-      //     // props.rule
-      //   }
-      // });
       cRule.value.forEach((i: IRuleItem, k: number) => {
         if (i.name === name) {
           cRule.value.splice(k, 1, newRuleItem);
         }
       });
       emit('update:rule', cRule.value);
-      setFormModel();
-      //
     }
     function setFormModel() {
+      cRule.value = [];
+      formModel.value = {};
       props.rule.forEach((i: IRuleItem) => {
-        // const v = JSON.parse(JSON.stringify(i));
         cRule.value.push({ ...i });
         formModel.value[i.name] = i.value;
       });
-
-      // props.rule.forEach((i: IRuleItem) => {
-      //   // const v = JSON.parse(JSON.stringify(i));
-      //   console.log(i, '::::::::::::');
-      //   cRule.push({ ...i });
-      //   formModel.value[i.name] = i.value;
-      // });
     }
-    setFormModel();
     emit('update:value', { setRule: setRule, formData: formData });
     return () => (
       <div class="CForm">
@@ -94,13 +80,17 @@ const CForm = defineComponent({
           {props.rule.map((i: IRuleItem) => {
             return (
               <a-form-item name={i.name} label={i.name}>
-                {h(resolveComponent(i.type), {
+                {h(resolveComponent(setDefaultCompoent(i.type)), {
                   value: formModel.value[i.name],
                   'onUpdate:value': (value: any) => {
                     formModel.value[i.name] = value;
+                    i.value = value;
                   },
                   ...i.on,
                 })}
+                <div>{setDefaultCompoent(i.type)}</div>
+                <div>{formModel.value[i.name]}</div>
+                <div>{i.value}</div>
               </a-form-item>
             );
           })}

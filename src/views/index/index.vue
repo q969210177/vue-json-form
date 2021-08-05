@@ -1,9 +1,8 @@
 <template>
   <div class="index">
     <c-form v-model:value="value" v-model:rule="rule" />
-    <a-button @click="test">ccc</a-button>
-    <a-button @click="ttt">zzz</a-button>
-    <!-- src="https://oss.evergrandeauto.com/ota-test/download/carModel/pic/821ee3327e77434db74a82ad2b9b747b.svg" -->
+    <!-- <a-button @click="test">ccc</a-button> -->
+    <a-button @click="ttt">{{ value.formData() }}</a-button>
   </div>
 </template>
 <script>
@@ -14,7 +13,7 @@ export default  defineComponent({
     const value = ref({})
     const rule =ref ([
       {
-        type: 'aInput',
+        type: 'input',
         name: 'a',
         value: '',
         label: 'a',
@@ -24,17 +23,24 @@ export default  defineComponent({
         col: {
           span: 4,
         },
-        on:{
-          onChange(){
-            console.log(props);
-          },
-        },
       },
       {
-        type: 'a-rate',
+        type: 'input',
         name: 'b',
         value: 1,
         label: 'b',
+        props: {
+          placeholder: '',
+        },
+        col: {
+          span: 4,
+        },
+      },
+      {
+        type: 'datePicker',
+        name: 'C',
+        value: '',
+        label: 'C',
         props: {
           placeholder: '',
         },
@@ -46,7 +52,7 @@ export default  defineComponent({
     function test(){
       // rule.value[0] = { type: 'a-rate',name: 'c',value: 5 }
       value.value.setRule('a', {
-        type: 'a-rate',
+        type: 'rate',
         name: 'cccc',
         value: 1,
         label: 'b',
@@ -54,7 +60,7 @@ export default  defineComponent({
     }
     function ttt(){
       // rule.value[0] = { type: 'a-rate',name: 'c',value: 5 }
-      console.log(value.value.formData());
+
     }
     return {
       rule,

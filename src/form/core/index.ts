@@ -6,5 +6,6 @@ interface defaultCompoentObj {
 const index: defaultCompoentObj = {
   input: 'aInput',
   datePicker: 'aDatePicker',
+  rate: 'aRate',
 };
 export default index;

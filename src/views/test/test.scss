@@ -1,0 +1,16 @@
+.test{
+    width: 100%;
+    height: 100%;
+    .test_item{
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(auto-fill,30px);
+        grid-template-rows: repeat(auto-fill,20px);
+        grid-gap: 10px;
+        .item{
+            width: 100%;
+            height: 100%;
+            border: 1px solid red;
+        }
+    }
+}

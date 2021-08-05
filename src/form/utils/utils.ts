@@ -5,6 +5,7 @@ import comNameObj from '../core/index';
 export function setDefaultCompoent(name: string): any {
   if (comNameObj[name]) {
     console.log(comNameObj[name]);
+    return comNameObj[name];
   }
   return '';
 }
