@@ -88,9 +88,9 @@ const CForm = defineComponent({
                   },
                   ...i.on,
                 })}
-                <div>{setDefaultCompoent(i.type)}</div>
-                <div>{formModel.value[i.name]}</div>
-                <div>{i.value}</div>
+                {/* <div>{setDefaultCompoent(i.type)}</div> */}
+                {/* <div>{formModel.value[i.name]}</div> */}
+                {/* <div>{i.value}</div> */}
               </a-form-item>
             );
           })}

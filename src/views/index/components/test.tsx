@@ -1,13 +1,20 @@
-import { defineComponent } from 'vue';
-import { Vue } from 'vue-class-component'
-type test = Vue
-const  test = defineComponent({
-  name:'Test',
-  setup(){
-    return{}
+import { defineComponent, resolveComponent, h } from "vue";
+import { Vue } from "vue-class-component";
+interface Itest extends Vue {
+  func1: void;
+}
+const test = defineComponent({
+  name: "Test",
+  props: {
+    value: {
+      type: String,
+      default: "",
+    },
   },
-  render(vm: test) {
-    return <div class='test'>111111</div>
+  setup(pros, con) {
+    return () => {
+      h(resolveComponent(pros.value), { ...con.attrs });
+    };
   },
-})
-export default test
+});
+export default test;
